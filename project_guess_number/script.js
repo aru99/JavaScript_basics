@@ -27,19 +27,38 @@ document.querySelector(".check").addEventListener("click", () => {
   if (!guess) {
     document.querySelector(".message").textContent = `⛔ no value `;
   }
-  //for different senarios
+
+  //--------for different senarios
+  // when the user gusses the right number
   else if (guess === secretNumber) {
     document.querySelector(".message").textContent = "🎉 Correct Number";
+
+    //changing the background color of the web page when the user wins
+    //*note css values should be always passed in string
+    document.querySelector("body").style.backgroundColor = "#60b347";
+    //increasing the width of the number on display
+    document.querySelector(".number").style.width = "30rem";
     //document.querySelector(".number").textContent = secretNumber;
   } else if (guess > secretNumber) {
-    //if the number is greater than the random number
-    document.querySelector(".message").textContent = "📈 too high";
-    score--;
-    document.querySelector(".score").textContent = score;
+    // comparison done only when the score is above 0
+    if (score > 1) {
+      //if the number is greater than the random number
+      document.querySelector(".message").textContent = "📈 too high";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".score").textContent = "💥 you lost the game";
+      document.querySelector(".score").textContent = 0;
+    }
   } else if (guess < secretNumber) {
-    //if the number is smaler than the random number
-    document.querySelector(".message").textContent = "📈 too low";
-    score--;
-    document.querySelector(".score").textContent = score;
+    if (score > 1) {
+      //if the number is smaler than the random number
+      document.querySelector(".message").textContent = "📈 too low";
+      score--;
+      document.querySelector(".score").textContent = score;
+    } else {
+      document.querySelector(".message").textContent = "💥 you lost the game";
+      document.querySelector(".score").textContent = 0;
+    }
   }
 });
