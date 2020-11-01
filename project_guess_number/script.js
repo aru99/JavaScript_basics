@@ -12,12 +12,10 @@
 
 // -------------variables------------------------------
 // creating the random number, won't change later on so const
-const secretNumber = Math.trunc(Math.random() * 20 + 1);
+let secretNumber = Math.trunc(Math.random() * 20 + 1);
 //variable for score, it will change later on, so no const
 let score = 20;
 // ------------------variables------------------------------
-
-document.querySelector(".number").textContent = secretNumber;
 
 document.querySelector(".check").addEventListener("click", () => {
   const guess = Number(document.querySelector(".guess").value);
@@ -32,6 +30,8 @@ document.querySelector(".check").addEventListener("click", () => {
   // when the user gusses the right number
   else if (guess === secretNumber) {
     document.querySelector(".message").textContent = "🎉 Correct Number";
+    //displaying the secret number when the userr wins
+    document.querySelector(".number").textContent = secretNumber;
 
     //changing the background color of the web page when the user wins
     //*note css values should be always passed in string
@@ -61,4 +61,21 @@ document.querySelector(".check").addEventListener("click", () => {
       document.querySelector(".score").textContent = 0;
     }
   }
+});
+
+// work for again button
+
+document.querySelector(".again").addEventListener("click", () => {
+  score = 20;
+  //setting the score value to default
+  document.querySelector(".score").textContent = score;
+  //changing the secret number for new game
+  secretNumber = Math.trunc(Math.random() * 20 + 1);
+  //restoring the default messages
+  document.querySelector(".message").textContent = "Start guessing..";
+  document.querySelector(".number").textContent = "?";
+  document.querySelector(".guess").value = " ";
+  //restoring the default color and box width
+  document.querySelector("body").style.backgroundColor = "#222";
+  document.querySelector(".number").style.width = "15rem";
 });
