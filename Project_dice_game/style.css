@@ -170,3 +170,7 @@ main {
 .hidden {
   display: none;
 }
+
+body .main-heading {
+  font-weight: 700;
+}

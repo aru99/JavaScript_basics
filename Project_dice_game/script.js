@@ -1,6 +1,6 @@
 'use strict';
 
-// ---------------selecting the reuseable elements----------------------------------
+// ---------------selecting the reuseable elements start----------------------------------
 //for active player
 const player0El = document.querySelector('.player--0');
 const player1El = document.querySelector('.player--1');
@@ -17,19 +17,35 @@ const diceEl = document.querySelector('.dice');
 const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
-// ---------------selecting the reuseable elements----------------------------------
+// ---------------selecting the reuseable elements end----------------------------------
 
-//------------------setting the initial score
-score0El.textContent = 0;
-score1El.textContent = 0;
-//Hiding the dice initially, remove the hidden calss later to show the dice
-diceEl.classList.add('hidden');
-// definfing the current score outside of the event handler
-let currentScore = 0;
-let activePlayer = 0;
-const scores = [0, 0];
-//game state variable
-let playing = true;
+let scores, currentScore, activePlayer, playing;
+
+const init = () => {
+  score0El.textContent = 0;
+  score1El.textContent = 0;
+  // definfing the current score outside of the event handler
+  currentScore = 0;
+  activePlayer = 0;
+  scores = [0, 0];
+  //game state variable
+  playing = true;
+  //resetting the current score
+  currentEl0.textContent = 0;
+  currentEl1.textContent = 0;
+
+  //Hiding the dice initially, remove the hidden calss later to show the dice
+  diceEl.classList.add('hidden');
+  //removing the winner class styles from the players
+  player0El.classList.remove(`player--winner`);
+  player1El.classList.remove(`player--winner`);
+
+  //removing the active class style from player1 and adding it back to player 0 which was the default
+  player0El.classList.add(`player--active`);
+  player1El.classList.remove(`player--active`);
+};
+
+init();
 
 const switchPlayer = () => {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -99,3 +115,8 @@ btnHold.addEventListener('click', () => {
 });
 
 //^^^^^^^^^^^^^^^^^^^^^^^eventListener for the hold button end^^^^^^^^^^^^^^^^^^^^^
+
+//^^^^^^^^^^^^^^^^^^^^^^^eventListener for the new button start^^^^^^^^^^^^^^^^^^^^^
+btnNew.addEventListener('click', init);
+
+//^^^^^^^^^^^^^^^^^^^^^^^eventListener for the new button end^^^^^^^^^^^^^^^^^^^^^
