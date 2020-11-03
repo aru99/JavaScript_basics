@@ -28,6 +28,8 @@ diceEl.classList.add('hidden');
 let currentScore = 0;
 let activePlayer = 0;
 const scores = [0, 0];
+//game state variable
+let playing = true;
 
 const switchPlayer = () => {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -41,50 +43,58 @@ const switchPlayer = () => {
 
 //^^^^^^^^^^^^^^^^^^^^^^^eventListener for the dice roll button start^^^^^^^^^^^^^^^^^^^^^
 btnRoll.addEventListener('click', () => {
-  //TODO
-  //1.generating a random dice roll
-  const dice = Math.trunc(Math.random() * 6) + 1;
-  console.log(dice);
+  // play if the game varialbel (playing) is true
+  if (playing) {
+    //TODO
+    //1.generating a random dice roll
+    const dice = Math.trunc(Math.random() * 6) + 1;
+    console.log(dice);
 
-  //2.displaying the dice
-  diceEl.classList.remove('hidden');
-  diceEl.src = `dice-${dice}.png`;
+    //2.displaying the dice
+    diceEl.classList.remove('hidden');
+    diceEl.src = `dice-${dice}.png`;
 
-  //check for a rolled 1: if true, switch to next player
-  if (dice !== 1) {
-    //add dice to the current score
-    // currentScore = currentScore + dice; a better way is written down XD
-    currentScore += dice;
-    document.getElementById(
-      `current--${activePlayer}`
-    ).textContent = currentScore;
-  } else {
-    switchPlayer();
+    //check for a rolled 1: if true, switch to next player
+    if (dice !== 1) {
+      //add dice to the current score
+      // currentScore = currentScore + dice; a better way is written down XD
+      currentScore += dice;
+      document.getElementById(
+        `current--${activePlayer}`
+      ).textContent = currentScore;
+    } else {
+      switchPlayer();
+    }
   }
 });
 //^^^^^^^^^^^^^^^^^^^^^^^eventListener for the dice roll button end^^^^^^^^^^^^^^^^^^^^^
 
 //^^^^^^^^^^^^^^^^^^^^^^^eventListener for the hold button start^^^^^^^^^^^^^^^^^^^^^
 btnHold.addEventListener('click', () => {
-  //TODO
-  //1.Add current score to the active player
+  // play if the game varialbel (playing) is true
+  if (playing) {
+    //TODO
+    //1.Add current score to the active player
 
-  scores[activePlayer] += currentScore;
-  //scores[1] = scores[1] + currentScore
-  document.getElementById(`score--${activePlayer}`).textContent =
-    scores[activePlayer];
-  //2.check if player's score is >= 100
-  if (scores[activePlayer] >= 20) {
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.remove('player--active');
-    document
-      .querySelector(`.player--${activePlayer}`)
-      .classList.add('player--winner');
-  } else {
-    //2.1 if >= 100 finish the game
-    //2.2 else switch to the next player
-    switchPlayer();
+    scores[activePlayer] += currentScore;
+    //scores[1] = scores[1] + currentScore
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+    //2.check if player's score is >= 100
+    if (scores[activePlayer] >= 20) {
+      playing = false;
+      diceEl.classList.add('hidden');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+    } else {
+      //2.1 if >= 100 finish the game
+      //2.2 else switch to the next player
+      switchPlayer();
+    }
   }
 });
 
