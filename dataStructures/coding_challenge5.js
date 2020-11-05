@@ -56,3 +56,18 @@ const game = {
 //         Hummels: 1,
 //         Lewandowski: 2
 //       }
+
+//-------------------------solution---------------------
+//1.
+for (const [i, playerName] of game.scored.entries()) {
+  console.log(`${i + 1} goal : scored by ${playerName}`);
+}
+
+//2
+let sumOfOdds = 0;
+for (const value of Object.values(game.odds)) {
+  sumOfOdds += value;
+}
+console.log(Object.values(game.odds).length);
+//const average = sumOfOdds / game.odds.entries().length;
+console.log((sumOfOdds /= Object.values(game.odds).length));
