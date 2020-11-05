@@ -33,6 +33,9 @@ const restaurant = {
     return `here is your delicious pasta : ${ing1}, ${ing2}, ${ing3}`;
   },
 };
+restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
 
 const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
 console.log(menu);
