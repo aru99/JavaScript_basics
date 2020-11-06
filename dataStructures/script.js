@@ -62,25 +62,25 @@ const restaurant = {
   },
 };
 
-//loopinng over objects : object keys, values and entries
-const properties = Object.keys(openingHours);
-console.log(properties);
+// //loopinng over objects : object keys, values and entries
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-let openStr = `we are open on ${properties.length} days`;
-console.log(openStr);
+// let openStr = `we are open on ${properties.length} days`;
+// console.log(openStr);
 
-for (const day of properties) {
-  openStr += `${day},`;
-}
-console.log(openStr);
+// for (const day of properties) {
+//   openStr += `${day},`;
+// }
+// console.log(openStr);
 
-//entire object
-const entries = Object.entries(openingHours);
-console.log(entries);
+// //entire object
+// const entries = Object.entries(openingHours);
+// console.log(entries);
 
-for (const [key, { open, close }] of entries) {
-  console.log(`we are open on ${key} from ${open}:00 hrs to ${close}:00 hrs`);
-}
+// for (const [key, { open, close }] of entries) {
+//   console.log(`we are open on ${key} from ${open}:00 hrs to ${close}:00 hrs`);
+// }
 
 //
 // //example for Optional Chaining
