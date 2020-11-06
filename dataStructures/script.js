@@ -108,6 +108,18 @@ const tableNumbers = [1, 2, 3, 4];
 rest.set(tableNumbers, "number of tables");
 console.log(rest.get(tableNumbers));
 
+// populating the map via another method
+const question_map = new Map([
+  ["question", "which is the most famous programming language in the world"],
+  [1, "c"],
+  [2, "c++"],
+  [3, "javascript"],
+  [true, "correct answer"],
+  [false, "wronng answer"],
+]);
+
+console.log(question_map);
+
 //
 // //loopinng over objects : object keys, values and entries
 // const properties = Object.keys(openingHours);
