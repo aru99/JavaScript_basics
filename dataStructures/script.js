@@ -114,12 +114,27 @@ const question_map = new Map([
   [1, "c"],
   [2, "c++"],
   [3, "javascript"],
-  [true, "correct answer"],
-  [false, "wronng answer"],
+  [true, "correct answer 💥"],
+  [false, "wronng answer 😒"],
 ]);
 
-console.log(question_map);
+// iterating over a map
+console.log(question_map.get("question"));
+for (const [key, value] of question_map) {
+  if (typeof key === "number") {
+    console.log(` Answers ${key} : ${value}`);
+  }
+}
 
+const answer = Number(prompt("Your answer : "));
+console.log(answer);
+const answer_message = question_map.get(answer === 3);
+console.log(answer_message);
+// console.log(question_map);
+// //converting or obtaining a map from an object
+// console.log(Object.entries(openingHours));
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
 //
 // //loopinng over objects : object keys, values and entries
 // const properties = Object.keys(openingHours);
