@@ -62,6 +62,53 @@ const restaurant = {
   },
 };
 
+//sets
+const staff = [
+  "chef",
+  "waiter",
+  "manager",
+  "chef",
+  "waiter",
+  "watchman",
+  "cook",
+];
+
+const staffUnnique = new Set(staff);
+// console.log(staffUnnique);
+const uniqueStaffarry = [...new Set(staff)];
+console.log(uniqueStaffarry.length);
+console.log(uniqueStaffarry);
+
+console.log(`this is comig form the set properties : ` + new Set(staff).size);
+
+// maps
+const rest = new Map();
+rest.set("name", "haldirams");
+rest.set("address", "mfm mall mg road");
+rest.set(3, "owner");
+console.log(rest);
+
+rest
+  .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
+  .set("open", 11)
+  .set("close", 22)
+  .set(true, "aavijoo bakka , we are open :D")
+  .set(false, "Jaavone, api close abhi");
+
+console.log(rest.get("name"));
+console.log(rest.get(3));
+console.log(rest.get(true));
+console.log(rest.get("categories"));
+
+const time = 21;
+console.log(rest.get(time > rest.get("open") && time < rest.get("close")));
+
+//arrays in map
+const tableNumbers = [1, 2, 3, 4];
+rest.set(tableNumbers, "number of tables");
+console.log(rest.get(tableNumbers));
+
+//
 // //loopinng over objects : object keys, values and entries
 // const properties = Object.keys(openingHours);
 // console.log(properties);
