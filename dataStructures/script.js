@@ -130,6 +130,11 @@ const answer = Number(prompt("Your answer : "));
 console.log(answer);
 const answer_message = question_map.get(answer === 3);
 console.log(answer_message);
+
+// converting a map into an array
+const queArr = [...question_map];
+console.log(queArr);
+
 // console.log(question_map);
 // //converting or obtaining a map from an object
 // console.log(Object.entries(openingHours));
