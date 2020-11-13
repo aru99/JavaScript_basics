@@ -50,3 +50,10 @@ console.log(time);
 console.log(
   `An event happened, on average, every ${time / gameEvents.size} minutes `
 );
+
+// -------------------------------4 iterate over the map
+for (const [min, event] of gameEvents) {
+  const half = min <= 45 ? `First` : `Second`;
+  //   console.log(event);
+  console.log(`[${half} HALF] ${min}: ${event} `);
+}
