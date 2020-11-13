@@ -60,6 +60,10 @@ console.log(credit_card_mask(4566773829375));
 console.log(credit_card_mask("5674930239447592"));
 
 //--------padding end----------------
+//--------repeat start----------------
+const delayed_message = "..all flights are delayed, due to bad weather.. \n";
+console.log(delayed_message.repeat(4));
+//--------repeat end----------------
 //--------------------------------------------------name right formatting start-------------------------------------
 // // function that takes a passanger name and returns the right formatted passanger name
 // const correctName = (passanger_name) => {
