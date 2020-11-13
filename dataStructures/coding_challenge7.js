@@ -32,3 +32,22 @@ GOOD LUCK 😀
 
 document.body.append(document.createElement("textarea"));
 document.body.append(document.createElement("button"));
+
+//creating an event listner on the button element
+document.querySelector("button").addEventListener("click", () => {
+  //getting the text out of the text area
+  const text = document.querySelector("textarea").value;
+  //splitting the text aerea string into seperate strings, useing split method to get an array
+  const rows = text.split("\n");
+  console.log(rows);
+
+  for (const [i, row] of rows.entries()) {
+    const [first, second] = row.trim().toLowerCase().split("_");
+    //console.log(row, first, second);
+    const output = `${first}${second.replace(
+      second[0],
+      second[0].toUpperCase()
+    )}`;
+    console.log(`${output.padEnd(20)}${"✅".repeat(i + 1)}`);
+  }
+});
