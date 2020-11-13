@@ -33,3 +33,7 @@ console.log(gameEvents.values());
 
 const events = [...new Set(gameEvents.values())];
 console.log(events);
+
+// 2 remove teh yellow card at the minute 64, i.e delete the event that occoured at the key value 64
+gameEvents.delete(64);
+console.log(gameEvents.values());
