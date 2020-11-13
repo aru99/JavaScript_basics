@@ -21,7 +21,28 @@ const plane2 = "A320";
 console.log(plane2.includes("A320"));
 console.log(plane2.includes("Boeing"));
 //---------Boolean End----------
+//------------------split & join method start----------------
+const message = "hi my name is santiago romerzo";
+console.log(message.split(" ").indexOf("name"));
+const [first_name, last_name] = "Santiago Romerzo".split(" ");
+console.log(first_name, last_name);
+const newName = ["Mr", first_name, last_name.toUpperCase()].join(" ");
+console.log(newName);
 
+//function to capitalize the name
+const capitaliseName = (name) => {
+  const names = name.split(" ");
+  const upper_name = [];
+  for (const n of names) {
+    upper_name.push(n[0].toUpperCase() + n.slice(1));
+  }
+  console.log(upper_name.join(" "));
+};
+
+capitaliseName("mohammad arman");
+capitaliseName("kriti jain");
+
+//------------------split & join method end----------------
 //--------------------------------------------------name right formatting start-------------------------------------
 // // function that takes a passanger name and returns the right formatted passanger name
 // const correctName = (passanger_name) => {
