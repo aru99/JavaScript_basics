@@ -45,6 +45,21 @@ capitaliseName("mohammad arman");
 
 //------------------split & join method end----------------
 
+//--------padding start----------------
+
+const message2 = "go to gate no 23!";
+console.log(message2.padStart(25, "+"));
+
+const credit_card_mask = (number) => {
+  const str = number + "";
+  const last_digits = str.slice(-4);
+  return last_digits.padStart(str.length, "*");
+};
+
+console.log(credit_card_mask(4566773829375));
+console.log(credit_card_mask("5674930239447592"));
+
+//--------padding end----------------
 //--------------------------------------------------name right formatting start-------------------------------------
 // // function that takes a passanger name and returns the right formatted passanger name
 // const correctName = (passanger_name) => {
