@@ -37,6 +37,26 @@ const correctPassanger =
 console.log(correctPassanger);
 //--------------------------------------------------name right formatting end-------------------------------------
 
+//---------------------------------------emial comparison start------------------------------
+const email = "thisisdummyemail@dummy.com";
+const loginEmail = "   ThisISDUMMyEmail@DUmmy.com \n";
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// const finalEmail = trimmedEmail;
+// console.log(finalEmail);
+// console.log(finalEmail === email);
+
+//refactoring the above lines of code
+const normalise_email = loginEmail.toLowerCase().trim();
+console.log(normalise_email);
+//converting it in a function
+const emailCorrector = (user_email) => {
+  return user_email.toLowerCase().trim();
+};
+
+console.log(emailCorrector(loginEmail));
+//---------------------------------------emial comparison end------------------------------
 // console.log(plane[3]);
 
 // console.log(plane.length);
