@@ -26,3 +26,10 @@ const gameEvents = new Map([
   [80, "⚽️ GOAL"],
   [92, "🔶 Yellow card"],
 ]);
+
+console.log(`checking for update`);
+//  1 so we need an array of unique events that occoured in the game, thus convert a set to an array, make sure you unpack the set in the new array
+console.log(gameEvents.values());
+
+const events = [...new Set(gameEvents.values())];
+console.log(events);
